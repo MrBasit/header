@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Maga Manu Adil</title>
+    <!-- font awesome icone upper css ka -->
+    <link rel="stylesheet" href="./css/font-awesome icons.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" media="(max-width:768px)" href="./ipad.css">
+	<link rel="stylesheet" media="(max-width:500px)" href="./mobile.css">
+ 
+</head>
+<body>
+    <!-- header start -->
+    <header class="header">
+        <div class="containers">
+            <div class="rows v-center">
+                <div class="header__item item--left--mobile profile">
+                    <div class="mobile-menu-trigger">
+                        <span></span>
+                    </div>
+                </div>
+                <div class="header__item item--left">
+                    <div class="logo">
+                        <a href="#"><img src="./img/logo.png" alt="cite logo"></a>
+                    </div>
+                </div>
+                <!-- menu start here -->
+                <div class="header__item item--center">
+                    <div class="menu-overlay">
+                        
+                    </div>
+                    <nav class="menu">
+                        <div class="mobile-menu-head">
+                            <div class="go-back">
+                                <i class="fa fa-angle-left"></i>
+                            </div>
+                            <div class="current-menu-tittle">
+                              
+                            </div>
+                            <div class="mobile-menu-close">
+                               &times;
+                            </div>
+                        </div>
+                        <ul class="manu-main">
+                            <li>
+                                <a href="#">Payouts Blocked</a>
+                            </li>
+                            <li>
+                                <a href="#">Inbox</a>
+                            </li>
+                            <li>
+                                <a href="#">Link </a>
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="#">Listings <i class="fas fa-angle-down"></i></a>
+                                <div class="sub-manu single-column-manu">
+                                    <ul>
+                                        <li>
+                                            <a href="#">Genres  </a><i class="fas fa-angle-down i_1"></i>
+                                        </li>
+                                        <li>
+                                            <a href="#">Moodos </a><i class="fas fa-angle-down i_2"></i>
+                                        </li>
+                                        <li>
+                                            <a href="#">Instrument </a> <i class="fas fa-angle-down i_3"></i>
+                                        </li>
+                                        <li>
+                                            <a href="#">All Genres </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            
+                            <li>
+                                <a href="#">Calender</a>
+                            </li>
+                            <li>
+                                <a href="#">Add-ons</a>
+                            </li>
+                            <li>
+                                <a href="#">Community</a>
+                            </li>
+                            
+                           
+                          
+                           
+                        </ul>
+                    </nav>
+                </div>
+                
+                 <!-- menu end here -->
+                 <div class="header__item item--right">
+                    <a href="#"><i class="fas fa-envelope-square"></i></a>
+                    <a href="#"><img src="./img/p.jpg" alt="profile img"></a>
+                    
+                   
+                </div>
+                <!--  -->
+            </div>
+        </div>
+    </header>
+    <!-- header end -->
+
+
+    <script >
+
+        // ---- menu Start -----
+        
+            const menu = document.querySelector('.menu');
+            const menuMain = menu.querySelector('.manu-main');
+            const goBack = menu.querySelector('.go-back');
+            const menuTrigger =  document.querySelector('.mobile-menu-trigger');
+            const closeMenu = menu.querySelector('.mobile-menu-close');
+            let subMenu;
+
+            // Select DropDown Items
+            menuMain.addEventListener('click', (e) =>{
+                // item (news,shop,blogs,pages) sa active class screen bari krna pa hat jaya to jasa akhir ma kia ha
+                if(!menu.classList.contains('active')){
+                    return;
+                }
+
+                if(e.target.closest('.menu-item-has-children')){
+                    const hasChildren = e.target.closest('.menu-item-has-children');
+                    showSubMenu(hasChildren);
+                }
+            });
+
+            // Go Back Function
+            goBack.addEventListener('click', () => {
+                hideSubMenu();
+            });
+
+            // Menu Trigger Func
+            menuTrigger.addEventListener('click', () =>{
+                toggleMenu();
+            });
+
+            // Close Menu Function
+            closeMenu.addEventListener('click', () => {
+                toggleMenu();
+            });
+
+            // For Menu Disappear to click on overlay yani kesi bhi jagha
+            document.querySelector('.menu-overlay').addEventListener('click', () =>{
+                toggleMenu();
+            });
+
+            // toggle Menu func
+            function toggleMenu(){
+                menu.classList.toggle('active');
+                document.querySelector('.menu-overlay').classList.toggle('active');
+            };
+
+            // Get Text of items heading
+            function showSubMenu(hasChildren){
+                subMenu = hasChildren.querySelector('.sub-manu');
+                subMenu.classList.add('active');
+                subMenu.style.animation = 'slideLeft 0.5s ease forwards';
+                // console.log(subMenu);
+                const menuTitle = hasChildren.querySelector('i').parentNode.childNodes[0].textContent;
+                menu.querySelector('.current-menu-tittle').innerHTML = menuTitle;
+                menu.querySelector('.mobile-menu-head').classList.add('active');
+            }
+
+            // Hide Sub Menu's of targated Item
+            function  hideSubMenu(){
+                subMenu.style.animation = 'slideRight 0.5s ease forwards';
+                setTimeout(() => {
+                    subMenu.classList.remove('active');
+                }, 300);
+                menu.querySelector('.current-menu-tittle').innerHTML = '';
+                menu.querySelector('.mobile-menu-head').classList.remove('active');
+
+            }
+
+            // taka apna browser ko chota kr ka nav kholi ha or phr ap na browser ko bara kia to nav hat gaye lakin jb ap phr sa browser ko chota karo gay to nav khuli hogy to es ko set krna ka leya
+            window.onresize = function() {
+                // console.log(this.innerWidth);
+                if(this.innerWidth > 991){
+                    if(menu.classList.contains('active')){
+                        toggleMenu();
+                    }
+                    // if(menu.classList.contains('active')){
+                    //     console.log('true');
+                    // }else{
+                    //     console.log('false');
+                    // }
+                }
+            }
+        // ---- menu End -----
+        // ---- searchbar start ----
+            // Search Bar
+            const searchBtn = document.querySelector('.search-btn');
+            const cancelBtn = document.querySelector('.cancel-btn');
+            const searchBox = document.querySelector('.search-box');
+            const searchInput = document.querySelector('input');
+            const searchdata = document.querySelector('.search-data');
+
+            searchBtn.onclick = () => {
+            searchBox.classList.add('active');
+            searchInput.classList.add('active');
+            searchBtn.classList.add('active');
+            cancelBtn.classList.add('active');
+            if(searchInput.value != ""){
+                let values = searchInput.value;
+            searchdata.classList.remove('active');
+                searchdata.innerHTML= "You Just Typed : " + "<span style='font-weight: 600; letter-spacing: 1px;'>" + values +"</span>";
+            }else{
+                searchdata.innerHTML = ""
+            }
+            }
+
+            cancelBtn.onclick = () => {
+            searchBox.classList.remove('active');
+            searchInput.classList.remove('active');
+            searchBtn.classList.remove('active');
+            cancelBtn.classList.remove('active');
+            searchdata.classList.add('active');
+            searchInput.value = '';
+            }
+
+            // ---- searchbar end ----
+    </script>
+</body>
+</html>
