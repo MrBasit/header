@@ -4,13 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Maga Manu Adil</title>
-    <!-- font awesome icone upper css ka -->
-    <link rel="stylesheet" href="./css/font-awesome icons.css">
+    <title>Maga Manu</title>
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" media="(max-width:768px)" href="./ipad.css">
-	<link rel="stylesheet" media="(max-width:500px)" href="./mobile.css">
- 
 </head>
 <body>
     <!-- header start -->
@@ -55,17 +50,65 @@
                                 <a href="#">Link </a>
                             </li>
                             <li class="menu-item-has-children">
-                                <a href="#">Listings <i class="fas fa-angle-down"></i></a>
+                                <a href="#" class="cursor__text">Listings <i class="fas fa-angle-down"></i></a>
                                 <div class="sub-manu single-column-manu">
-                                    <ul>
-                                        <li>
-                                            <a href="#">Genres  </a><i class="fas fa-angle-down i_1"></i>
+                                    <ul> 
+                                        <li class="sub__main__2">
+                                            <a class="sub__manu_2__a_main cursor__text" href="#">Genres <i class="fas fa-greater-than i_1"></i></a>
+                                            <div class="single-column-manu sub__main__inner">
+                                                <ul>
+                                                    <li>
+                                                        <a href="#">Genres 2 </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">Moodos 2</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">Instrument 2</a> 
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">All Genres 3</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </li>
-                                        <li>
-                                            <a href="#">Moodos </a><i class="fas fa-angle-down i_2"></i>
+                                        <li class="sub__main__2">
+                                            <a class="sub__manu_2__a_main cursor__text"  href="#">Moodos <i class="fas fa-greater-than i_2"></i></a>
+                                            <div class="single-column-manu sub__main__inner">
+                                                <ul>
+                                                    <li>
+                                                        <a href="#">Genres 2 </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">Moodos 2</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">Instrument 2</a> 
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">All Genres 3</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </li>
-                                        <li>
-                                            <a href="#">Instrument </a> <i class="fas fa-angle-down i_3"></i>
+                                        <li class="sub__main__2">
+                                            <a class="sub__manu_2__a_main cursor__text" href="#">Instrument <i class="fas fa-greater-than i_3"></i></a>
+                                            <div class="single-column-manu sub__main__inner">
+                                                <ul>
+                                                    <li>
+                                                        <a href="#">Genres 2 </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">Moodos 2</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">Instrument 2</a> 
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">All Genres 3</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </li>
                                         <li>
                                             <a href="#">All Genres </a>
@@ -93,10 +136,28 @@
                 
                  <!-- menu end here -->
                  <div class="header__item item--right">
-                    <a href="#"><i class="fas fa-envelope-square"></i></a>
-                    <a href="#"><img src="./img/p.jpg" alt="profile img"></a>
+                    <a href="#"><i class="fas fa-envelope-square"></i> <span class="no__msg">1</span> </a>
+                        <div class="profile__main">
+                            <a class="profile cursor__text" href="#"><img src="./img/p.jpg" alt="profile img"> </a>
+                            <div class="sub__menu sub__menu__one__col">
+                                <ul>
+                                    <li>
+                                        <a href="#">Genres a </a></i>
+                                    </li>
+                                    <li>
+                                        <a href="#">Moodos </a></i>
+                                    </li>
+                                    <li>
+                                        <a href="#">Instrument </a> </i>
+                                    </li>
+                                    <li>
+                                        <a href="#">All Genres </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     
-                   
+                    
                 </div>
                 <!--  -->
             </div>
@@ -105,125 +166,7 @@
     <!-- header end -->
 
 
-    <script >
-
-        // ---- menu Start -----
-        
-            const menu = document.querySelector('.menu');
-            const menuMain = menu.querySelector('.manu-main');
-            const goBack = menu.querySelector('.go-back');
-            const menuTrigger =  document.querySelector('.mobile-menu-trigger');
-            const closeMenu = menu.querySelector('.mobile-menu-close');
-            let subMenu;
-
-            // Select DropDown Items
-            menuMain.addEventListener('click', (e) =>{
-                // item (news,shop,blogs,pages) sa active class screen bari krna pa hat jaya to jasa akhir ma kia ha
-                if(!menu.classList.contains('active')){
-                    return;
-                }
-
-                if(e.target.closest('.menu-item-has-children')){
-                    const hasChildren = e.target.closest('.menu-item-has-children');
-                    showSubMenu(hasChildren);
-                }
-            });
-
-            // Go Back Function
-            goBack.addEventListener('click', () => {
-                hideSubMenu();
-            });
-
-            // Menu Trigger Func
-            menuTrigger.addEventListener('click', () =>{
-                toggleMenu();
-            });
-
-            // Close Menu Function
-            closeMenu.addEventListener('click', () => {
-                toggleMenu();
-            });
-
-            // For Menu Disappear to click on overlay yani kesi bhi jagha
-            document.querySelector('.menu-overlay').addEventListener('click', () =>{
-                toggleMenu();
-            });
-
-            // toggle Menu func
-            function toggleMenu(){
-                menu.classList.toggle('active');
-                document.querySelector('.menu-overlay').classList.toggle('active');
-            };
-
-            // Get Text of items heading
-            function showSubMenu(hasChildren){
-                subMenu = hasChildren.querySelector('.sub-manu');
-                subMenu.classList.add('active');
-                subMenu.style.animation = 'slideLeft 0.5s ease forwards';
-                // console.log(subMenu);
-                const menuTitle = hasChildren.querySelector('i').parentNode.childNodes[0].textContent;
-                menu.querySelector('.current-menu-tittle').innerHTML = menuTitle;
-                menu.querySelector('.mobile-menu-head').classList.add('active');
-            }
-
-            // Hide Sub Menu's of targated Item
-            function  hideSubMenu(){
-                subMenu.style.animation = 'slideRight 0.5s ease forwards';
-                setTimeout(() => {
-                    subMenu.classList.remove('active');
-                }, 300);
-                menu.querySelector('.current-menu-tittle').innerHTML = '';
-                menu.querySelector('.mobile-menu-head').classList.remove('active');
-
-            }
-
-            // taka apna browser ko chota kr ka nav kholi ha or phr ap na browser ko bara kia to nav hat gaye lakin jb ap phr sa browser ko chota karo gay to nav khuli hogy to es ko set krna ka leya
-            window.onresize = function() {
-                // console.log(this.innerWidth);
-                if(this.innerWidth > 991){
-                    if(menu.classList.contains('active')){
-                        toggleMenu();
-                    }
-                    // if(menu.classList.contains('active')){
-                    //     console.log('true');
-                    // }else{
-                    //     console.log('false');
-                    // }
-                }
-            }
-        // ---- menu End -----
-        // ---- searchbar start ----
-            // Search Bar
-            const searchBtn = document.querySelector('.search-btn');
-            const cancelBtn = document.querySelector('.cancel-btn');
-            const searchBox = document.querySelector('.search-box');
-            const searchInput = document.querySelector('input');
-            const searchdata = document.querySelector('.search-data');
-
-            searchBtn.onclick = () => {
-            searchBox.classList.add('active');
-            searchInput.classList.add('active');
-            searchBtn.classList.add('active');
-            cancelBtn.classList.add('active');
-            if(searchInput.value != ""){
-                let values = searchInput.value;
-            searchdata.classList.remove('active');
-                searchdata.innerHTML= "You Just Typed : " + "<span style='font-weight: 600; letter-spacing: 1px;'>" + values +"</span>";
-            }else{
-                searchdata.innerHTML = ""
-            }
-            }
-
-            cancelBtn.onclick = () => {
-            searchBox.classList.remove('active');
-            searchInput.classList.remove('active');
-            searchBtn.classList.remove('active');
-            cancelBtn.classList.remove('active');
-            searchdata.classList.add('active');
-            searchInput.value = '';
-            }
-
-            // ---- searchbar end ----
-    </script>
+    <script type="text/javascript" src="./js/script.js"> </script>
+    <script src="https://kit.fontawesome.com/b6fdcdf49e.js" crossorigin="anonymous"></script>
 </body>
 </html>
