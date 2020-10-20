@@ -98,6 +98,9 @@ a{
     vertical-align: middle;
     border-radius: 50%;
 }
+.header .item--right .profile__main .profile > i{
+    font-size: 14px ;
+}
 .header .menu > ul > li{
     line-height: 46px; 
 }
@@ -123,7 +126,8 @@ a{
     padding: 0px 0px;
     border: 1px solid #eeeeee;
     transition: all 0.5s ease;
-    margin-top: -3px;
+    margin-top: 0px;
+    margin-left: -1px;
     opacity: 0;
     visibility: hidden;
 
@@ -142,6 +146,8 @@ a{
 .sub__menu{
     width: min(160px, 160px);
 }
+.header .menu > ul > li .sub-manu > ul > li > a,
+.sub__main__2 .sub__main__inner ul li,
 .sub__menu ul li{
     border-bottom: 1px solid #eeeeee;
 }
@@ -155,10 +161,6 @@ a{
     text-transform: uppercase !important;
     padding: 13px 20px !important;
 }
-.sub__menu ul li:hover,
-.sub__menu ul li:focus{
-    background-color: #c4bdbd;
-}
 .sub__menu__one__col{            
     position: absolute;
     z-index: 500;
@@ -167,7 +169,7 @@ a{
     border: 1px solid #eeeeee;
     transition: all 0.5s ease;
     margin-top: 4px;
-    transform: translateX(-58%);
+    transform: translateX(-48.9%);
     opacity: 0;
     visibility: hidden;
 }
@@ -186,7 +188,7 @@ a{
     padding: 0px 0px;
     border: 1px solid #eeeeee;
     transition: all 0.5s ease;
-    margin-top: 39px;
+    margin-top: -0.6px;
     transform: translateX(99.5%);
     opacity: 0;
     visibility: hidden;
@@ -199,11 +201,7 @@ a{
     text-decoration: none;
     transition: color 0.3s ease;
     text-transform: uppercase;
-    padding: 13px 20px;
-}
-.sub__main__2 .sub__main__inner ul li:focus,
-.sub__main__2 .sub__main__inner ul li:hover{
-    background-color: #c4bdbd;
+    padding: 1.3em 2em;
 }
 /* manu ka item 992px pa nazar nh ayain bahla hover karo li pa */
 @media (min-width : 992px){
@@ -226,31 +224,36 @@ a{
     display: flex;
 }
 .header .menu > ul > li .sub-manu > ul > li > a{
-    display: inline-block;
-    padding: 10px 0;
-    font-size: .8rem;
+    width: 100%;
+    font-size: 12px;
+    font-weight: 500;
     color: #555555;
-    text-decoration: none;
+    text-transform: capitalize;
     transition: color 0.3s ease;
-    text-transform: uppercase;
-    padding: 13px 20px;
+    position: relative;
+    padding: 1.4em 2em;
 }
+.sub__menu ul li:hover,
+.sub__menu ul li:focus,
+.sub__main__2 .sub__main__inner ul li:focus,
+.sub__main__2 .sub__main__inner ul li:hover,
 .header .menu > ul > li .sub-manu > ul > li:focus,
 .header .menu > ul > li .sub-manu > ul > li:hover{
     background-color: #c4bdbd;
 }
-.header .menu > ul > li .sub-manu > ul > li > i{
+.i_1,
+.i_2,
+.i_3{
+    position: absolute;
+    height: 46px;
+    width: 18px;
+    top: 0;
+    right: 0;
+    text-align: center;
+    line-height: 50px;
     transform: rotate(-90deg);
 }
-.i_1{
-    padding-left: 113px; 
-}
-.i_2{
-    padding-left: 103px;
-}
-.i_3{
-    padding-left: 84px;   
-}
+
 .header .menu > ul > li .single-column-manu{
     width: min(220px, 220px);
 }   
@@ -340,9 +343,6 @@ a{
     .sub__main__2 .sub__main__inner ul li{
         padding: 6px 15px;
     }
-    .header .menu > ul > li .sub-manu > ul > li > a {
-        padding: 15px 20px;
-    }
     .sub__main__2 .sub__main__inner ul li a{
         padding: 10px 0;
         font-size: .8rem;
@@ -355,15 +355,7 @@ a{
     .header .menu > ul > li .sub-manu > ul > li{
         border-bottom: 1px solid #eeeeee;
     }
-    .i_1{
-        padding-left: 215px;
-    }  
-    .i_2 {
-        padding-left: 204px;
-    }
-    .i_3 {
-        padding-left: 186px;
-    }   
+      
     .header .logo a{
         justify-content: center;
     }
@@ -372,6 +364,33 @@ a{
     }   
     header .profile{
         display: inline-block;
+    }
+    .header .item--right a {
+        font-size: 18px;
+        margin-left: 10px;
+    }
+    .header .item--right a img {
+        width: 1.7rem;
+        margin-left: 10px;
+    }
+    .sub__menu__one__col {
+        transform: translateX(-66.9px);
+
+    }
+    header .profile__main .sub__menu__one__col ul li{
+        text-align: center;
+    }
+    header .profile__main .sub__menu__one__col ul li a{
+        margin: 0px;
+    }
+    .sub__menu {
+        width: min(140px, 140px);
+    }
+    .sub__menu ul li a {
+        
+        padding: 10px 10px !important;
+        font-size: .7rem !important;
+       
     }
     .header .item--center{
         flex: 0 0 100%;
@@ -385,12 +404,11 @@ a{
         flex: 0 0 auto;
         text-align: center;
     }
-    .header .item--right{
-        flex: 0 0 auto;  
-    }
-    /* es sa icons or hamburger vertically center ho jayain gay */
+    
+    /* hamburger vertically center */
     .header .item--right{
         align-items: center;
+        flex: 0 0 auto; 
     }
     .header .menu > ul{
         flex-direction: column;
